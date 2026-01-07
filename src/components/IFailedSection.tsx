@@ -24,7 +24,7 @@ const IFailedSection: React.FC = () => {
               viewport={{ once: true }}
             >
               <img
-                src="https://i.imgur.com/JkASEy2.jpeg"
+                src="/assets/images/ifailed.jpeg"
                 alt="Jan, founder of DoneResults"
                 className="rounded-2xl shadow-lg mx-auto md:mx-0 max-w-full md:max-w-[350px] w-full h-auto"
                 loading="lazy"

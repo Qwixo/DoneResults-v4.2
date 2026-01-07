@@ -28,7 +28,7 @@ const EmailStats: React.FC = () => {
           className="flex justify-center mb-16"
         >
           <img
-            src="https://i.imgur.com/1d49832c-8f60-4be6-84a0-1636737c684d"
+            src="/assets/images/email-stats.png"
             alt="Email marketing statistics"
             className="rounded-xl shadow-lg max-w-full md:max-w-4xl w-full"
             loading="lazy"

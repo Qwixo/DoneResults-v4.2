@@ -11,10 +11,10 @@ export function TimelineDemo() {
             INTERESTING FACT - Industry standard is ~1%
           </p>
           <div className="flex flex-col space-y-4">
-            <img src="https://i.imgur.com/bv8vfIZ.png" alt="Reply rate example 1" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
-            <img src="https://i.imgur.com/Qu8S6yM.png" alt="Reply rate example 2" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
-            <img src="https://i.imgur.com/0LTgVSt.png" alt="Reply rate example 3" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
-            <img src="https://i.imgur.com/sHYnNvb.png" alt="Reply rate example 4" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/reply-rate-1.png" alt="Reply rate example 1" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/reply-rate-2.png" alt="Reply rate example 2" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/reply-rate-3.png" alt="Reply rate example 3" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/reply-rate-4.png" alt="Reply rate example 4" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
           </div>
         </div>
       ),
@@ -27,9 +27,9 @@ export function TimelineDemo() {
             Meaning on average 30% of the replies are positive — people who want to hear what you have to offer
           </p>
           <div className="flex flex-col space-y-4">
-            <img src="https://i.imgur.com/Rr8ZnaK.png" alt="Opportunity rate example 1" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
-            <img src="https://i.imgur.com/LTicAGD.png" alt="Opportunity rate example 2" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
-            <img src="https://i.imgur.com/mNlfmeV.png" alt="Opportunity rate example 3" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/opportunity-rate-1.png" alt="Opportunity rate example 1" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/opportunity-rate-2.png" alt="Opportunity rate example 2" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/opportunity-rate-3.png" alt="Opportunity rate example 3" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
           </div>
         </div>
       ),
@@ -48,7 +48,7 @@ export function TimelineDemo() {
             We scale the volume based on your goals — 2, 10, 50… it's up to you.
           </p>
           <div className="flex flex-col space-y-4">
-            <img src="https://i.imgur.com/FRXyef4.png" alt="Real people results" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/real-people.png" alt="Real people results" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
           </div>
         </div>
       ),
@@ -64,7 +64,7 @@ export function TimelineDemo() {
             Whether you want 2 leads a week or 20, we can dial the outreach up or down to fit your calendar. No overload, no stress.
           </p>
           <div className="flex flex-col space-y-4">
-            <img src="https://i.imgur.com/sr2wCLu.png" alt="Scalable and controllable" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/scalable.png" alt="Scalable and controllable" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
           </div>
         </div>
       ),
@@ -83,7 +83,7 @@ export function TimelineDemo() {
             Hyper-targeted campaign paused after just 2 days due to overwhelming replies (resuming soon).
           </p>
           <div className="flex flex-col space-y-4">
-            <img src="https://i.imgur.com/JYiZ9nW.png" alt="B2B Language School case study" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
+            <img src="/assets/images/case-study.png" alt="B2B Language School case study" className="rounded-lg object-cover w-full shadow" loading="lazy" width="800" height="450" />
           </div>
         </div>
       ),

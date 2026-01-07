@@ -4,18 +4,29 @@ const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let rafId: number | null = null;
+    let lastScrollTop = 0;
 
-      if (scrollTop > 50) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      if (rafId) return;
+
+      rafId = requestAnimationFrame(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop !== lastScrollTop) {
+          setIsVisible(scrollTop > 50);
+          lastScrollTop = scrollTop;
+        }
+
+        rafId = null;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -26,9 +37,9 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="logo">
           <img
-            src="https://i.imgur.com/jbOMOyH.png"
+            src="/assets/images/logo-header.png"
             alt="DoneResults company logo"
-            width="150"
+            width="206"
             height="30"
           />
         </div>

@@ -49,17 +49,12 @@ export function ScrollDemo() {
         {/* Full-width image */}
         <div className="flex justify-center mb-8">
           <img
-            src="https://i.imgur.com/UVKhQle.jpeg"
+            src="/assets/images/scroll-demo.jpeg"
             alt="Email Marketing Revenue Growth"
             className="rounded-xl shadow-lg max-w-5xl w-full object-contain"
             loading="lazy"
             width="1200"
             height="600"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = "/images/email-marketing-growth-chart.png";
-            }}
           />
         </div>
 

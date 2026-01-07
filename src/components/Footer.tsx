@@ -5,11 +5,11 @@ const Footer: React.FC = () => {
     <footer className="bg-neutral-900 text-white py-8">
       <div className="container mx-auto flex flex-col items-center gap-4 text-center">
         <img
-          src="https://i.imgur.com/kpHtGKX.png"
+          src="/assets/images/logo-footer.png"
           alt="DoneResults Logo"
           className="h-12 md:h-16"
           loading="lazy"
-          width="200"
+          width="198"
           height="64"
         />
 

@@ -11,17 +11,29 @@ const Hero: React.FC = () => {
 
     if (!hero || !dotsHighlight) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = hero.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+    let rafId: number | null = null;
 
-      dotsHighlight.style.setProperty('--mouse-x', `${mouseX}px`);
-      dotsHighlight.style.setProperty('--mouse-y', `${mouseY}px`);
-      dotsHighlight.style.opacity = '1';
+    const handleMouseMove = (e: MouseEvent) => {
+      if (rafId) return;
+
+      rafId = requestAnimationFrame(() => {
+        const rect = hero.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        dotsHighlight.style.setProperty('--mouse-x', `${mouseX}px`);
+        dotsHighlight.style.setProperty('--mouse-y', `${mouseY}px`);
+        dotsHighlight.style.opacity = '1';
+
+        rafId = null;
+      });
     };
 
     const handleMouseLeave = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
       if (dotsHighlight) dotsHighlight.style.opacity = '0';
     };
 
@@ -29,6 +41,7 @@ const Hero: React.FC = () => {
     hero.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       hero.removeEventListener('mousemove', handleMouseMove);
       hero.removeEventListener('mouseleave', handleMouseLeave);
     };

@@ -15,18 +15,28 @@ export default defineConfig({
     minify: 'terser',
     cssMinify: true,
     reportCompressedSize: true,
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-icons': ['lucide-react'],
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-motion';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+            return 'vendor-other';
+          }
         },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const ext = info[info.length - 1]
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(ext)) {
             return `assets/images/[name]-[hash][extname]`
           } else if (/woff|woff2|eot|ttf|otf/i.test(ext)) {
             return `assets/fonts/[name]-[hash][extname]`
@@ -41,11 +51,26 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info'],
+        pure_funcs: ['console.log', 'console.info', 'console.warn'],
+        passes: 2,
+        unsafe_arrows: true,
+        unsafe_methods: true,
+      },
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
       },
     },
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
-  }
+    exclude: [],
+  },
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
 })
