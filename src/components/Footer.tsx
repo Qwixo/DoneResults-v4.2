@@ -61,6 +61,15 @@ const Footer: React.FC = () => {
           >
             Benzo Marketing
           </a>
+          {" & "}
+          <a
+            href="https://cc-invent.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline text-white"
+          >
+            CC-Invent
+          </a>
         </p>
       </div>
     </footer>
