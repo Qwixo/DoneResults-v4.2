@@ -27,10 +27,13 @@ const EmailStats: React.FC = () => {
           viewport={{ once: true }}
           className="flex justify-center mb-16"
         >
-          <img 
-            src="https://i.imgur.com/1d49832c-8f60-4be6-84a0-1636737c684d" 
-            alt="Email marketing statistics" 
+          <img
+            src="https://i.imgur.com/1d49832c-8f60-4be6-84a0-1636737c684d"
+            alt="Email marketing statistics"
             className="rounded-xl shadow-lg max-w-full md:max-w-4xl w-full"
+            loading="lazy"
+            width="1200"
+            height="675"
           />
         </motion.div>
 

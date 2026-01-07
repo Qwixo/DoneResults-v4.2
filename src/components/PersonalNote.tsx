@@ -6,10 +6,13 @@ const PersonalNote: React.FC = () => {
       <div className="container mx-auto">
         <div className="two-column">
           <div className="column-left">
-            <img 
-              src="/images/jan-photo.svg" 
-              alt="Jan Doe" 
-              className="founder-photo" 
+            <img
+              src="/images/jan-photo.svg"
+              alt="Jan Doe"
+              className="founder-photo"
+              loading="lazy"
+              width="300"
+              height="300"
             />
           </div>
           <div className="column-right">

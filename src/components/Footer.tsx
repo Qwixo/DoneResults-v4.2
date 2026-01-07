@@ -8,6 +8,9 @@ const Footer: React.FC = () => {
           src="https://i.imgur.com/kpHtGKX.png"
           alt="DoneResults Logo"
           className="h-12 md:h-16"
+          loading="lazy"
+          width="200"
+          height="64"
         />
 
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm md:text-base">

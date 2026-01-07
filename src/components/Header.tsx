@@ -25,7 +25,12 @@ const Header: React.FC = () => {
     >
       <div className="container">
         <div className="logo">
-          <img src="https://i.imgur.com/jbOMOyH.png" alt="DoneResults company logo" />
+          <img
+            src="https://i.imgur.com/jbOMOyH.png"
+            alt="DoneResults company logo"
+            width="150"
+            height="30"
+          />
         </div>
         <nav>
           <ul>

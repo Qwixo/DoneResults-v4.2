@@ -16,17 +16,20 @@ const IFailedSection: React.FC = () => {
           </h2>
 
           <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 mb-16">
-            <motion.div 
+            <motion.div
               className="w-full md:w-5/12 -mt-4 md:mt-0"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <img 
-                src="https://i.imgur.com/JkASEy2.jpeg" 
-                alt="Jan, founder of DoneResults" 
+              <img
+                src="https://i.imgur.com/JkASEy2.jpeg"
+                alt="Jan, founder of DoneResults"
                 className="rounded-2xl shadow-lg mx-auto md:mx-0 max-w-full md:max-w-[350px] w-full h-auto"
+                loading="lazy"
+                width="350"
+                height="467"
               />
             </motion.div>
 
@@ -75,13 +78,14 @@ const IFailedSection: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-                <iframe 
+                <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/D_2cybXeFP4" 
+                  src="https://www.youtube.com/embed/D_2cybXeFP4"
                   title="How the System Works"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                 ></iframe>
               </div>
             </motion.div>
