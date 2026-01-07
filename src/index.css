@@ -223,8 +223,8 @@ nav ul li a:hover {
 
 .hero-heading-part {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .highlight-guaranteed {
@@ -249,8 +249,8 @@ nav ul li a:hover {
 .hero-content p {
   font-size: 1.3rem;
   margin-bottom: 40px;
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cta-button {

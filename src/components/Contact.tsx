@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { GlowingEffect } from "./ui/glowing-effect";
-import { ArrowRight } from "lucide-react";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);

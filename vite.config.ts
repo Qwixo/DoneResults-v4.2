@@ -1,17 +1,40 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import viteCompression from 'vite-plugin-compression'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 1024,
+      algorithm: 'gzip',
+      ext: '.gz',
+    }),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 1024,
+      algorithm: 'brotliCompress',
+      ext: '.br',
+    }),
+    visualizer({
+      open: false,
+      gzipSize: true,
+      brotliSize: true,
+    }) as any,
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
-    target: 'es2015',
+    target: 'es2020',
     minify: 'terser',
     cssMinify: true,
     reportCompressedSize: true,
@@ -52,21 +75,26 @@ export default defineConfig({
         drop_console: true,
         drop_debugger: true,
         pure_funcs: ['console.log', 'console.info', 'console.warn'],
-        passes: 2,
+        passes: 3,
         unsafe_arrows: true,
         unsafe_methods: true,
+        unsafe_comps: true,
+        keep_fargs: false,
+        dead_code: true,
       },
       mangle: {
         safari10: true,
+        toplevel: true,
       },
       format: {
         comments: false,
+        ecma: 2020,
       },
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
-    exclude: [],
+    include: ['react', 'react-dom', 'framer-motion'],
+    exclude: ['lucide-react'],
   },
   server: {
     hmr: {

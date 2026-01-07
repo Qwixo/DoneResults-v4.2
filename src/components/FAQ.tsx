@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import Mail from 'lucide-react/dist/esm/icons/mail';
 
 interface FAQItem {
   question: string;

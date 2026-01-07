@@ -1,5 +1,7 @@
 import React from 'react';
-import { Wrench, Users, Building2 } from 'lucide-react';
+import Wrench from 'lucide-react/dist/esm/icons/wrench';
+import Users from 'lucide-react/dist/esm/icons/users';
+import Building2 from 'lucide-react/dist/esm/icons/building-2';
 import { motion } from 'framer-motion';
 
 const WhyOptionsFail: React.FC = () => {

@@ -59,36 +59,36 @@ const Hero: React.FC = () => {
         <h1>
           <motion.span
             className="hero-heading-part"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             Want More Clients?
           </motion.span>
           <br />
           <motion.span
             className="hero-heading-part highlight-guaranteed glitch"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5, ease: 'easeOut' }}
+            transition={{ delay: 0.1, duration: 0.3, ease: 'easeOut' }}
           >
             Guaranteed.
           </motion.span>
           <br />
           <motion.span
             className="hero-heading-part"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.5, ease: 'easeOut' }}
+            transition={{ delay: 0.2, duration: 0.3, ease: 'easeOut' }}
           >
             Or You Don't Pay.
           </motion.span>
         </h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.5, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.3, ease: 'easeOut' }}
         >
           We leverage AI-powered cold email to deliver warm, high-intent leads. If we fail, you don't pay.
         </motion.p>
@@ -98,9 +98,9 @@ const Hero: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="cta-button"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.0, duration: 0.5, ease: 'easeOut' }}
+          transition={{ delay: 0.4, duration: 0.3, ease: 'easeOut' }}
         >
           Book a Free Strategy Call
         </motion.a>

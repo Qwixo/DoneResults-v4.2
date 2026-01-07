@@ -7,9 +7,9 @@
     <!-- Performance: Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-    <link rel="dns-prefetch" href="https://connect.facebook.net" />
     <link rel="dns-prefetch" href="https://snap.licdn.com" />
     <link rel="dns-prefetch" href="https://r2.leadsy.ai" />
     <link rel="dns-prefetch" href="https://calendar.google.com" />
@@ -47,6 +47,8 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
+    <!-- Preload key logo images -->
+    <link rel="preload" href="/assets/images/logo-header.png" as="image" fetchpriority="high" />
 
     <!-- ✅ Optional extra force -->
     <style>
@@ -133,7 +135,7 @@
           f.parentNode.insertBefore(j, f);
         })(window, document, "script", "dataLayer", "GTM-55XPR63K");
 
-        // Facebook Pixel
+        // Facebook Pixel - Updated without deprecated APIs
         (function() {
           if (window.fbq) return;
           var f = window, b = document, e = "script", v = "https://connect.facebook.net/en_US/fbevents.js";
@@ -148,12 +150,20 @@
           var t = b.createElement(e);
           t.async = !0;
           t.src = v;
+          t.crossOrigin = "anonymous";
           t.onerror = function() { /* Silent fail */ };
           var s = b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t, s);
           try {
             fbq("init", "1903114373631152");
             fbq("track", "PageView");
+
+            // Use visibilitychange instead of deprecated unload
+            document.addEventListener("visibilitychange", function() {
+              if (document.visibilityState === "hidden" && navigator.sendBeacon) {
+                navigator.sendBeacon("https://www.facebook.com/tr?id=1903114373631152&ev=PageView&dl=" + encodeURIComponent(location.href));
+              }
+            });
           } catch(err) { /* Silent fail */ }
         })();
 
@@ -180,16 +190,31 @@
           } catch(err) { /* Silent fail */ }
         })();
 
-        // Leadsy.ai Pixel
+        // Leadsy.ai Pixel - Enhanced error handling
         (function() {
-          var script = document.createElement('script');
-          script.id = 'vtag-ai-js';
-          script.async = true;
-          script.src = 'https://r2.leadsy.ai/tag.js';
-          script.setAttribute('data-pid', '191mc6Y9biXisBWD7');
-          script.setAttribute('data-version', '062024');
-          script.onerror = function() { /* Silent fail */ };
-          document.body.appendChild(script);
+          try {
+            var script = document.createElement('script');
+            script.id = 'vtag-ai-js';
+            script.async = true;
+            script.src = 'https://r2.leadsy.ai/tag.js';
+            script.crossOrigin = "anonymous";
+            script.setAttribute('data-pid', '191mc6Y9biXisBWD7');
+            script.setAttribute('data-version', '062024');
+            script.onerror = function() { /* Silent fail */ };
+
+            // Add timeout to prevent hanging
+            var timeout = setTimeout(function() {
+              if (script.parentNode) {
+                script.parentNode.removeChild(script);
+              }
+            }, 5000);
+
+            script.onload = function() {
+              clearTimeout(timeout);
+            };
+
+            document.body.appendChild(script);
+          } catch(err) { /* Silent fail */ }
         })();
       });
     </script>

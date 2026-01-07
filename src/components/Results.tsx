@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 
 const Results: React.FC = () => {
   const buttonControls = useAnimation();

@@ -41,6 +41,8 @@ const Header: React.FC = () => {
             alt="DoneResults company logo"
             width="206"
             height="30"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <nav>
