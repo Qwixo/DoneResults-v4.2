@@ -265,17 +265,9 @@
     </noscript>
 
     <!-- ================================================= -->
-    <!-- ✅ LinkedIn Insight (noscript) -->
+    <!-- ✅ LinkedIn Insight (noscript) - Desktop Only -->
     <!-- ================================================= -->
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        alt=""
-        src="https://px.ads.linkedin.com/collect/?pid=8375538&fmt=gif"
-      />
-    </noscript>
+    <!-- Removed for mobile performance optimization -->
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
@@ -328,9 +320,14 @@
           } catch(err) { /* Silent fail */ }
         })();
 
-        // LinkedIn Insight Tag
+        // LinkedIn Insight Tag - Desktop Only (for cache optimization)
         (function() {
           try {
+            // Only load on desktop devices (min-width: 769px)
+            if (!window.matchMedia || !window.matchMedia('(min-width: 769px)').matches) {
+              return;
+            }
+
             window._linkedin_partner_id = "8375538";
             window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
             window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
