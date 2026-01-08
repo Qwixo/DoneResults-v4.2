@@ -221,10 +221,56 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-heading-part {
   display: inline-block;
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  animation: heroFadeInUp 0.4s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.hero-animate-1 {
+  animation-delay: 0s;
+}
+
+.hero-animate-2 {
+  animation-delay: 0.1s;
+}
+
+.hero-animate-3 {
+  animation-delay: 0.2s;
+}
+
+.hero-content p.hero-animate-4 {
+  opacity: 0;
+  animation: heroFadeInUp 0.4s ease-out 0.3s forwards;
+  will-change: transform, opacity;
+}
+
+.cta-button.hero-animate-5 {
+  opacity: 0;
+  animation: heroFadeInUp 0.4s ease-out 0.4s forwards;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading-part,
+  .hero-content p.hero-animate-4,
+  .cta-button.hero-animate-5 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .highlight-guaranteed {
@@ -262,8 +308,6 @@ nav ul li a:hover {
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
 }
 
 .cta-button:hover {
@@ -781,9 +825,24 @@ footer {
   #hero {
     padding: 60px 0;
   }
-  
+
   .hero-content p {
     font-size: 1.1rem;
+  }
+
+  .hero-dots,
+  .hero-dots-highlight {
+    display: none;
+  }
+
+  .hero-background {
+    background: linear-gradient(135deg, rgba(0, 167, 157, 0.03) 0%, rgba(248, 248, 248, 1) 100%);
+  }
+
+  .hero-heading-part,
+  .hero-content p.hero-animate-4,
+  .cta-button.hero-animate-5 {
+    animation-duration: 0.3s;
   }
   
   .features-grid {

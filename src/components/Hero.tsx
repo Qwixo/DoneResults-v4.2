@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -11,15 +10,30 @@ const Hero: React.FC = () => {
 
     if (!hero || !dotsHighlight) return;
 
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) return;
+
     let rafId: number | null = null;
+    let cachedRect: DOMRect | null = null;
+
+    const updateRect = () => {
+      if (hero) cachedRect = hero.getBoundingClientRect();
+    };
+
+    updateRect();
 
     const handleMouseMove = (e: MouseEvent) => {
       if (rafId) return;
 
       rafId = requestAnimationFrame(() => {
-        const rect = hero.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
+        if (!cachedRect) updateRect();
+        if (!cachedRect) {
+          rafId = null;
+          return;
+        }
+
+        const mouseX = e.clientX - cachedRect.left;
+        const mouseY = e.clientY - cachedRect.top;
 
         dotsHighlight.style.setProperty('--mouse-x', `${mouseX}px`);
         dotsHighlight.style.setProperty('--mouse-y', `${mouseY}px`);
@@ -37,13 +51,19 @@ const Hero: React.FC = () => {
       if (dotsHighlight) dotsHighlight.style.opacity = '0';
     };
 
+    const handleResize = () => {
+      updateRect();
+    };
+
     hero.addEventListener('mousemove', handleMouseMove);
     hero.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
       hero.removeEventListener('mousemove', handleMouseMove);
       hero.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -57,53 +77,31 @@ const Hero: React.FC = () => {
 
       <div className="hero-content">
         <h1>
-          <motion.span
-            className="hero-heading-part"
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-          >
+          <span className="hero-heading-part hero-animate-1">
             Want More Clients?
-          </motion.span>
+          </span>
           <br />
-          <motion.span
-            className="hero-heading-part highlight-guaranteed glitch"
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.3, ease: 'easeOut' }}
-          >
+          <span className="hero-heading-part highlight-guaranteed glitch hero-animate-2">
             Guaranteed.
-          </motion.span>
+          </span>
           <br />
-          <motion.span
-            className="hero-heading-part"
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.3, ease: 'easeOut' }}
-          >
+          <span className="hero-heading-part hero-animate-3">
             Or You Don't Pay.
-          </motion.span>
+          </span>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 1, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.3, ease: 'easeOut' }}
-        >
+        <p className="hero-animate-4">
           We leverage AI-powered cold email to deliver warm, high-intent leads. If we fail, you don't pay.
-        </motion.p>
+        </p>
 
-        <motion.a
+        <a
           href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Nftb9ChvZAt0emu09Jlpy8yb75wFGHuHhE3G_ZJLs5GxGKeotkde5FL3yrUW6JZT5TtQbDr95?gv=true"
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-button"
-          initial={{ opacity: 1, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.3, ease: 'easeOut' }}
+          className="cta-button hero-animate-5"
         >
           Book a Free Strategy Call
-        </motion.a>
+        </a>
       </div>
     </section>
   );
