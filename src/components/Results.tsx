@@ -36,13 +36,13 @@ const Results: React.FC = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-semibold mb-4 text-teal-500">
-            Real Results. No Guesswork.
+            Real Lead Generation Results. No Guesswork.
           </h3>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Your System, Optimized for Results
+            Our Lead Generation System, Optimized for Your Growth
           </h2>
           <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
-            We've sent thousands of emails per week for ourselves and our clients. Reply rates vary by offer — but typically fall between 3–10%, with 10–67% of replies being positive.
+            We've sent thousands of emails per week for ourselves and our clients. Our lead generation campaigns typically achieve 3-10% reply rates, with 10-67% of replies being positive.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 mb-10">

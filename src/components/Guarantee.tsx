@@ -16,11 +16,11 @@ const Guarantee: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Guaranteed Meetings. Or You Don't Pay.
+            Guaranteed Lead Generation. Or You Don't Pay.
           </h2>
 
           <p className="text-lg mb-8 max-w-3xl mx-auto">
-            We're so confident in our system that if we don't book you warm, qualified leads — you don't pay.
+            Unlike other lead generation agencies, we guarantee your results. If we don't book you warm, qualified leads, you don't pay our service fee.
             If that ever happens (and it hasn't yet), the only thing you'll cover are basic system fees.
           </p>
         </motion.div>

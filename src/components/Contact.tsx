@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
           {/* CTA Frosted Card */}
           <div className="relative backdrop-blur-sm bg-white/80 rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-              Does This Sound Like Something That Could Help You Grow?
+              Ready to Partner with a Proven Lead Generation Agency?
             </h2>
 
             <div className="mb-6 text-center">

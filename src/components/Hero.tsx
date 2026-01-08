@@ -78,11 +78,11 @@ const Hero: React.FC = () => {
       <div className="hero-content">
         <h1>
           <span className="hero-heading-part hero-animate-1">
-            Want More Clients?
+            B2B Lead Generation Agency
           </span>
           <br />
           <span className="hero-heading-part highlight-guaranteed glitch hero-animate-2">
-            Guaranteed.
+            Guaranteed Results
           </span>
           <br />
           <span className="hero-heading-part hero-animate-3">
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
         </h1>
 
         <p className="hero-animate-4">
-          We leverage AI-powered cold email to deliver warm, high-intent leads. If we fail, you don't pay.
+          We're a lead generation agency that delivers qualified B2B meetings through AI-powered cold email outreach. If we fail, you don't pay.
         </p>
 
         <a

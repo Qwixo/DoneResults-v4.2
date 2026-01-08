@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import SocialProof from './components/SocialProof'
 import WhatWeDo from './components/WhatWeDo'
 
 const ScrollDemo = lazy(() => import('./components/ScrollDemo').then(m => ({ default: m.ScrollDemo })))
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <Header />
       <main id="main-content">
         <Hero />
+        <SocialProof />
         <WhatWeDo />
         <Suspense fallback={<div style={{ minHeight: '400px' }} />}>
           <ScrollDemo />

@@ -13,10 +13,10 @@ const EmailStats: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Email Isn't Dead. It's <span className="text-teal-500">Dominating.</span>
+            Why Email Lead Generation is <span className="text-teal-500">Dominating</span> B2B Sales
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            While everyone chases the latest platform, email remains the most reliable channel for B2B lead generation.
+            While everyone chases the latest platform, email remains the most effective channel for B2B lead generation. This is why top lead generation agencies rely on cold email outreach.
           </p>
         </motion.div>
 
